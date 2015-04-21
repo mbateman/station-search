@@ -31,7 +31,7 @@ public class StationFinderTest {
     @Test
     public void enteringDARTShouldReturnNextCharactersFMAndDartfordDartmouthStations() throws Exception {
         List<String> stations = Arrays.asList(new String[]{"DARTFORD", "DARTMOUTH", "TOWER HILL", "DERBY"});
-        List<String> results = new StationFinder(stations).lookup("DART");
+        List<String> results = new StationFinder(stations).search("DART");
         assertEquals(Arrays.asList(new String[]{"F", "M", "DARTFORD", "DARTMOUTH" }), results);
     }
 
@@ -52,7 +52,7 @@ public class StationFinderTest {
     @Test
     public void enteringLiverpoolShouldReturnASpaceLiverpoolAndLiverpoolLimeStreet() throws Exception {
         List<String> stations = Arrays.asList(new String[]{"LIVERPOOL", "LIVERPOOL LIME STREET", "PADDINGTON"});
-        List<String> results = new StationFinder(stations).lookup("LIVERPOOL");
+        List<String> results = new StationFinder(stations).search("LIVERPOOL");
         assertEquals(Arrays.asList(new String[]{" ", "LIVERPOOL", "LIVERPOOL LIME STREET" }), results);
     }
 
@@ -61,7 +61,7 @@ public class StationFinderTest {
     @Test
     public void enteringUnknownStationShouldReturnNoNextCharactersAndNoStations() throws Exception {
         List<String> stations = Arrays.asList(new String[]{"EUSTON", "LONDON BRIDGE", "VICTORIA"});
-        List<String> results = new StationFinder(stations).lookup("KINGS CROSS");
+        List<String> results = new StationFinder(stations).search("KINGS CROSS");
         assertEquals(new ArrayList<String>(), results);
     }
 

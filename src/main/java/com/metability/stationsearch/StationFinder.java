@@ -14,7 +14,7 @@ public class StationFinder {
         this.stations = stations;
     }
 
-    public List<String> lookup(String searchTerm) {
+    public List<String> search(String searchTerm) {
         Stream<String> nextCharacters =
             stations.stream()
                 .filter(station -> station.contains(searchTerm) && searchTerm.length() < station.length())
