@@ -1,8 +1,9 @@
 package com.metability.stationsearch;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Created by michael on 21/04/2015.
@@ -22,7 +23,7 @@ public class StationFinder {
         return Stream.concat(
              nextCharacters,
              stations.stream()
-                 .filter(station -> station.contains(searchTerm)))
-                 .collect(Collectors.toList());
+                .filter(station -> station.contains(searchTerm)))
+                .collect(toList());
     }
 }
